@@ -1,0 +1,198 @@
+Start Time: 1725940053
+Elapsed Time: 0.085979 seconds
+CPU Time: 0.015625 seconds
+Memory Usage: 4748 KB
+Start Time: 1725940113
+Elapsed Time: 0.097228 seconds
+CPU Time: 0 seconds
+Memory Usage: 4748 KB
+Start Time: 1725940148
+Elapsed Time: 0.065939 seconds
+CPU Time: 0 seconds
+Memory Usage: 4772 KB
+Start Time: 1725940173
+Elapsed Time: 0.125365 seconds
+CPU Time: 0 seconds
+Memory Usage: 4772 KB
+Start Time: 1725940189
+Elapsed Time: 0.118694 seconds
+CPU Time: 0.015625 seconds
+Memory Usage: 4748 KB
+Start Time: 1725940418
+ Elapsed Time: 0.099793 seconds CPU Time: 0.03125 seconds  Memory Usage: 4748 KB Start Time: 1725940526  Elapsed Time: 0.087007 seconds CPU Time: 0 seconds  Memory Usage: 4772 KB Start Time: 1725940608  Elapsed Time: 0.075679 seconds CPU Time: 0 seconds  Memory Usage: 4748 KB 
+Start Time: 1725940735
+ Elapsed Time: 0.043647 seconds CPU Time: 0 seconds  Memory Usage: 4780 KB 
+Start Time: 1725940766
+ Elapsed Time: 0.114438 seconds CPU Time: 0.015625 seconds  Memory Usage: 4804 KB 
+Start Time: 1725940779
+ Elapsed Time: 0.081564 seconds CPU Time: 0 seconds  Memory Usage: 4780 KB 
+Start Time: 1725940799
+ Elapsed Time: 0.091902 seconds CPU Time: 0.015625 seconds  Memory Usage: 4780 KB 
+Start Time: 1725947399
+ Elapsed Time: 0.036375 seconds CPU Time: 0 seconds  Memory Usage: 4848 KB 
+Start Time: 1725947422
+ Elapsed Time: 0.039193 seconds CPU Time: 0 seconds  Memory Usage: 4748 KB 
+Start Time: 1725963128
+ Elapsed Time: 0.069912 seconds CPU Time: 0 seconds  Memory Usage: 4688 KB 
+Start Time: 1725963174
+ Elapsed Time: 0.099825 seconds CPU Time: 0.015625 seconds  Memory Usage: 4664 KB 
+Start Time: 1725963193
+ Elapsed Time: 0.108528 seconds CPU Time: 0.015625 seconds  Memory Usage: 4664 KB 
+Start Time: 1725968262
+ Elapsed Time: 0.069693 seconds CPU Time: 0 seconds  Memory Usage: 4688 KB 
+Start Time: 1725976867
+ Elapsed Time: 0.042429 seconds CPU Time: 0 seconds  Memory Usage: 4676 KB 
+Start Time: 1725976896
+ Elapsed Time: 0.035532 seconds CPU Time: 0 seconds  Memory Usage: 4676 KB 
+Start Time: 1725976968
+ Elapsed Time: 0.029903 seconds CPU Time: 0 seconds  Memory Usage: 4708 KB 
+Start Time: 1725977064
+ Elapsed Time: 0.039875 seconds CPU Time: 0 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977073
+ Elapsed Time: 0.029084 seconds CPU Time: 0 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977090
+ Elapsed Time: 0.030247 seconds CPU Time: 0 seconds  Memory Usage: 4692 KB 
+Start Time: 1725977125
+ Elapsed Time: 0.049883 seconds CPU Time: 0 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977195
+ Elapsed Time: 0.729474 seconds CPU Time: 0.453125 seconds  Memory Usage: 4692 KB 
+Start Time: 1725977297
+ Elapsed Time: 0.66137 seconds CPU Time: 0.546875 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977331
+ Elapsed Time: 0.424504 seconds CPU Time: 0.3125 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977357
+ Elapsed Time: 0.361257 seconds CPU Time: 0.171875 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977376
+ Elapsed Time: 0.060428 seconds CPU Time: 0.015625 seconds  Memory Usage: 4668 KB 
+Start Time: 1725977405
+ Elapsed Time: 0.175987 seconds CPU Time: 0.125 seconds  Memory Usage: 4668 KB 
+Start Time: 1726028971
+ Elapsed Time: 0.154429 seconds CPU Time: 0.109375 seconds  Memory Usage: 4692 KB 
+Start Time: 1726028993
+ Elapsed Time: 0.140011 seconds CPU Time: 0.09375 seconds  Memory Usage: 4668 KB 
+Start Time: 1726029624
+ Elapsed Time: 0.309577 seconds CPU Time: 0.234375 seconds  Memory Usage: 4688 KB 
+Start Time: 1726029624
+ Elapsed Time: 0.296159 seconds CPU Time: 0.1875 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029624
+ Elapsed Time: 0.297634 seconds CPU Time: 0.1875 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029624
+ Elapsed Time: 0.283391 seconds CPU Time: 0.21875 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029625
+ Elapsed Time: 0.175753 seconds CPU Time: 0.078125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029625
+ Elapsed Time: 0.174804 seconds CPU Time: 0.109375 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029625
+ Elapsed Time: 0.182096 seconds CPU Time: 0.078125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029625
+ Elapsed Time: 0.170898 seconds CPU Time: 0.125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029625
+ Elapsed Time: 0.175671 seconds CPU Time: 0.09375 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029694
+ Elapsed Time: 0.107552 seconds CPU Time: 0.078125 seconds  Memory Usage: 4688 KB 
+Start Time: 1726029694
+ Elapsed Time: 0.132167 seconds CPU Time: 0.046875 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029694
+ Elapsed Time: 0.125864 seconds CPU Time: 0.078125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029694
+ Elapsed Time: 0.124367 seconds CPU Time: 0.0625 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029694
+ Elapsed Time: 0.113 seconds CPU Time: 0.03125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029695
+ Elapsed Time: 0.44232 seconds CPU Time: 0.328125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029695
+ Elapsed Time: 0.466293 seconds CPU Time: 0.390625 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029695
+ Elapsed Time: 0.436031 seconds CPU Time: 0.296875 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029696
+ Elapsed Time: 0.319838 seconds CPU Time: 0.28125 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029696
+ Elapsed Time: 0.304177 seconds CPU Time: 0.25 seconds  Memory Usage: 4700 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.153424 seconds CPU Time: 0.078125 seconds  Memory Usage: 4664 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.171747 seconds CPU Time: 0.125 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.159901 seconds CPU Time: 0.109375 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.167105 seconds CPU Time: 0.046875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.152811 seconds CPU Time: 0.0625 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029771
+ Elapsed Time: 0.203985 seconds CPU Time: 0.046875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029772
+ Elapsed Time: 0.239513 seconds CPU Time: 0.1875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029772
+ Elapsed Time: 0.229181 seconds CPU Time: 0.1875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029772
+ Elapsed Time: 0.230868 seconds CPU Time: 0.1875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029772
+ Elapsed Time: 0.228545 seconds CPU Time: 0.15625 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029800
+ Elapsed Time: 0.144665 seconds CPU Time: 0.09375 seconds  Memory Usage: 4664 KB 
+Start Time: 1726029800
+ Elapsed Time: 0.248437 seconds CPU Time: 0.078125 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029800
+ Elapsed Time: 0.129194 seconds CPU Time: 0.078125 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029800
+ Elapsed Time: 0.152461 seconds CPU Time: 0.109375 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029800
+ Elapsed Time: 0.122289 seconds CPU Time: 0.078125 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029801
+ Elapsed Time: 0.628386 seconds CPU Time: 0.53125 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029801
+ Elapsed Time: 0.582466 seconds CPU Time: 0.515625 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029802
+ Elapsed Time: 0.846488 seconds CPU Time: 0.6875 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029803
+ Elapsed Time: 0.258845 seconds CPU Time: 0.15625 seconds  Memory Usage: 4676 KB 
+Start Time: 1726029803
+ Elapsed Time: 0.25804 seconds CPU Time: 0.15625 seconds  Memory Usage: 4676 KB 
+Start Time: 1726030277
+ Elapsed Time: 1.57768 seconds CPU Time: 1.39062 seconds  Memory Usage: 4692 KB 
+Start Time: 1726030279
+ Elapsed Time: 0.623876 seconds CPU Time: 0.53125 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030279
+ Elapsed Time: 0.633054 seconds CPU Time: 0.5 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.075848 seconds CPU Time: 0.015625 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.082796 seconds CPU Time: 0.015625 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.07254 seconds CPU Time: 0.015625 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.069316 seconds CPU Time: 0.015625 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.069526 seconds CPU Time: 0.015625 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.064958 seconds CPU Time: 0 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030280
+ Elapsed Time: 0.060363 seconds CPU Time: 0 seconds  Memory Usage: 4704 KB 
+Start Time: 1726030665
+Start Time: 1726030752
+Start Time: 1726030848
+ Elapsed Time: 3.67735 seconds CPU Time: 2.82812 seconds  Memory Usage: 4668 KB 
+Start Time: 1726031617
+ Elapsed Time: 4.37237 seconds CPU Time: 3.07812 seconds  Memory Usage: 4664 KB 
+Start Time: 1726032207
+ Elapsed Time: 2.67103 seconds CPU Time: 1.89062 seconds  Memory Usage: 4668 KB 
+Start Time: 1726032258
+ Elapsed Time: 20.7677 seconds CPU Time: 14.7344 seconds  Memory Usage: 4696 KB 
+Start Time: 1726045785
+ Elapsed Time: 4.99362 seconds CPU Time: 2.10938 seconds  Memory Usage: 4664 KB 
+Start Time: 1726047319
+ Elapsed Time: 4.38243 seconds CPU Time: 2.125 seconds  Memory Usage: 4852 KB 
+Start Time: 1726048432
+ Elapsed Time: 1.7075 seconds CPU Time: 1 seconds  Memory Usage: 4776 KB 
+Start Time: 1726048506
+ Elapsed Time: 0.994394 seconds CPU Time: 0.375 seconds  Memory Usage: 4776 KB 
+Start Time: 1726049652
+ Elapsed Time: 6.45223 seconds CPU Time: 1.26562 seconds  Memory Usage: 4780 KB 
+ Start Time: 1726050238
+ Elapsed Time: 7.52071 seconds CPU Time: 1.70312 seconds  Memory Usage: 4780 KB 
+Start Time: 1726050455
+ Elapsed Time: 0.644349 seconds CPU Time: 0.171875 seconds  Memory Usage: 4776 KB 
+Start Time: 1726052710
+ Elapsed Time: 0.548333 seconds CPU Time: 0.078125 seconds  Memory Usage: 4652 KB 
+Start Time: 1726052728
+ Elapsed Time: 0.753949 seconds CPU Time: 0.21875 seconds  Memory Usage: 4676 KB 
