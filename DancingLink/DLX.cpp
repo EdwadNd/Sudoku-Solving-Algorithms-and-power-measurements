@@ -63,7 +63,7 @@ void write_csv_row(ofstream& file, const string& col1, const string& col2, const
 }
 
 int main() {
-    const string log_filename = "Hard_log.csv";
+    const string log_filename = "MediumTest_log.csv";
     bool log_exists = file_exists(log_filename);
     ofstream logFile(log_filename, ios::app); // Open in append mode
     
@@ -78,7 +78,7 @@ int main() {
         logFile << "|------------|----------------------|----------------------|---------------------------|" << endl;
     }
 
-    ifstream puzzleFile("hard.txt");
+    ifstream puzzleFile("MediumTest.txt");
     if (!puzzleFile.is_open()) {
         cout << "Unable to open file: " << endl;
         return 1;
