@@ -1,215 +1,186 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <iostream>
 #include <ctime>
+#include <chrono>
+#include <windows.h>
+#include <psapi.h>
+#include <fstream>
+#include <iomanip>
+#include <sstream>
+#include <vector>
+#include <sys/stat.h>
+
 using namespace std;
 
-// get the grid
-// randomly fill each 3x3 box such that it has all numbers from 1 to 9
-// at each turn, keep swapping 2 random cells in a random box
-// if cost increases within some iterations, randomly fill input grid again
-// cost function would be sum of number of symbols missing all together
-// from all rows and columns
-
-
-// https://www.researchgate.net/publication/220403361_Metaheuristics_can_solve_Sudoku_puzzles
-
-int SEED = 42;                                                // seed for PRNG
+// Seed for PRNG
+int SEED = 42;
 mt19937 rng(SEED);
 
-int randomInt(int low, int high)
-{
+int randomInt(int low, int high) {
     uniform_int_distribution<> dist(low, high);
     return dist(rng);
 }
 
-double randomDouble()
-{
+double randomDouble() {
     uniform_real_distribution<double> dist(0.0, 1.0);
     return dist(rng);
 }
 
-int getCost(vector<vector<int>>& grid)
-{
+int getCost(vector<vector<int>>& grid) {
     int cost = 0;
-    for (int i=0; i<9; i++)
-    {
+    for (int i = 0; i < 9; i++) {
         set<int> rowSet, columnSet;
-        for (int j=0; j<9; j++)
-        {
-            rowSet.insert(grid[i][j]);                         // distinct elements in each row
-            columnSet.insert(grid[j][i]);                      // distinct elements in each column
+        for (int j = 0; j < 9; j++) {
+            rowSet.insert(grid[i][j]); // Distinct elements in each row
+            columnSet.insert(grid[j][i]); // Distinct elements in each column
         }
         cost += (18 - (rowSet.size() + columnSet.size()));
     }
     return cost;
 }
 
-void printGrid(vector<vector<int>>& grid)
-{
-    for (int i=0; i<9; i++)
-    {
-        for (int j=0; j<9; j++)
-        {
-            cout<<grid[i][j]<<" ";
+void printGrid(vector<vector<int>>& grid) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            cout << grid[i][j] << " ";
         }
-        cout<<"\n";
+        cout << "\n";
     }
-    cout<<"\n";
+    cout << "\n";
 }
 
-void populateGrid(vector<vector<int>>& grid, vector<vector<bool>>& fixed)
-{
-    for (int rowBox=0; rowBox<3; rowBox++)
-    {
-        for (int colBox=0; colBox<3; colBox++)                  // go over each 3x3 box
-        {
-
+void populateGrid(vector<vector<int>>& grid, vector<vector<bool>>& fixed) {
+    for (int rowBox = 0; rowBox < 3; rowBox++) {
+        for (int colBox = 0; colBox < 3; colBox++) { // Go over each 3x3 box
             set<int> boxSet;
-            for (int i=1; i<10; i++) boxSet.insert(i);
+            for (int i = 1; i < 10; i++) boxSet.insert(i);
 
-            for (int i=3*rowBox; i<3*(rowBox+1); i++)
-            {
-                for (int j=3*colBox; j<3*(colBox+1); j++)       // maintain unfixed elements in each box
-                {
+            for (int i = 3 * rowBox; i < 3 * (rowBox + 1); i++) {
+                for (int j = 3 * colBox; j < 3 * (colBox + 1); j++) { // Maintain unfixed elements in each box
                     if (fixed[i][j]) boxSet.erase(grid[i][j]);
                 }
             }
 
             vector<int> boxUnfixed;
-            for (int i:boxSet) boxUnfixed.push_back(i);
-            shuffle(boxUnfixed.begin(), boxUnfixed.end(), rng); // shuffle unfixed elements
+            for (int i : boxSet) boxUnfixed.push_back(i);
+            shuffle(boxUnfixed.begin(), boxUnfixed.end(), rng); // Shuffle unfixed elements
 
             int k = 0;
-            for (int i=3*rowBox; i<3*(rowBox+1); i++)
-            {
-                for (int j=3*colBox; j<3*(colBox+1); j++)
-                {
-                    if (!fixed[i][j])
-                    {
-                        grid[i][j] = boxUnfixed[k];             // put in shuffled elements at empty places
+            for (int i = 3 * rowBox; i < 3 * (rowBox + 1); i++) {
+                for (int j = 3 * colBox; j < 3 * (colBox + 1); j++) {
+                    if (!fixed[i][j]) {
+                        grid[i][j] = boxUnfixed[k]; // Put in shuffled elements at empty places
                         k++;
                     }
                 }
             }
-
         }
     }
 }
 
-void swapUnfixed(vector<vector<int>>& grid, vector<vector<bool>>& fixed)
-{
-
-    int rowBox = randomInt(0,2);
-    int colBox = randomInt(0,2);
-    int i1=0, j1=0;
-    while (1)                                       // choose first cell
-    {
-        i1 = 3*rowBox + randomInt(0,2);
-        j1 = 3*colBox + randomInt(0,2);
+void swapUnfixed(vector<vector<int>>& grid, vector<vector<bool>>& fixed) {
+    int rowBox = randomInt(0, 2);
+    int colBox = randomInt(0, 2);
+    int i1 = 0, j1 = 0;
+    while (1) { // Choose first cell
+        i1 = 3 * rowBox + randomInt(0, 2);
+        j1 = 3 * colBox + randomInt(0, 2);
         if (!fixed[i1][j1]) break;
     }
-    int i2=0, j2=0;
-    while (1)                                       // choose second cell
-    {
-        i2 = 3*rowBox + randomInt(0,2);
-        j2 = 3*colBox + randomInt(0,2);
+    int i2 = 0, j2 = 0;
+    while (1) { // Choose second cell
+        i2 = 3 * rowBox + randomInt(0, 2);
+        j2 = 3 * colBox + randomInt(0, 2);
         if (!fixed[i2][j2]) break;
     }
 
-    swap(grid[i1][j1], grid[i2][j2]);               // swap chosen cells
-
+    swap(grid[i1][j1], grid[i2][j2]); // Swap chosen cells
 }
 
-double stddev(vector<int>& costs)
-{
+double stddev(vector<int>& costs) {
     int size = costs.size();
     double mean = 0;
-    for (int i:costs) mean+=i;
-    mean = mean/size;
+    for (int i : costs) mean += i;
+    mean = mean / size;
     double var = 0;
-    for (int i:costs) var += (i-mean)*(i-mean);
-    return var/size;
+    for (int i : costs) var += (i - mean) * (i - mean);
+    return var / size;
 }
 
-int main()
-{
+bool file_exists(const string& filename) {
+    struct stat buffer;
+    return (stat(filename.c_str(), &buffer) == 0);
+}
 
+vector<int> read_puzzle_from_file(const string& filename) {
+    ifstream file(filename);
+    if (!file.is_open()) {
+        cerr << "Unable to open puzzle file: " << filename << endl;
+        exit(1);
+    }
+    
+    string line;
+    getline(file, line);
+    file.close();
 
-    vector<vector<int>> grid(9, vector<int>(9));    //stores grid
-    vector<vector<bool>>fixed(9,vector<bool>(9));   //stores fixed places
+    vector<int> puzzle;
+    stringstream ss(line);
+    string token;
+    while (getline(ss, token, ',')) {
+        puzzle.push_back(stoi(token));
+    }
+    return puzzle;
+}
 
+void write_csv_row(ofstream& file, const string& col1, const string& col2, const string& col3, const string& col4) {
+    file << "| " << setw(10) << left << col1 << " | "
+         << setw(20) << left << col2 << " | "
+         << setw(20) << left << col3 << " | "
+         << setw(25) << left << col4 << " |" << endl;
+}
 
-    /// 4 Easy Boards
-    // string s = "079000046061042050050090020708001630000050000035600207020070060080230170490000380";   /// String  s represents the board so it is what you should read in from the file ///
-    //string s = "910700000032609080007080900086030170300000006051020840009050300020301490000002061";
-    //string s = "600705403003020700000006051205060904070000010901070508530800000008090300706100300";
-    string s = "0,9,7,5,0,1,8,0,0,8,0,0,0,2,0,0,0,0,1,2,0,4,0,3,0,9,0,7,5,0,0,0,0,0,2,0,0,0,4,2,0,9,3,0,0,0,8,0,0,0,0,0,1,9,0,4,0,7,0,6,0,8,5,0,0,0,0,5,0,0,0,1,0,0,8,1,0,4,2,6,0";
+int main() {
+    vector<vector<int>> grid(9, vector<int>(9)); // Stores grid
+    vector<vector<bool>> fixed(9, vector<bool>(9)); // Stores fixed places
 
-    /// 4 Medium Boards
-    //string s= "0,3,8,0,0,9,0,0,7,0,0,0,0,8,0,3,0,0,0,0,0,1,0,7,6,0,0,3,0,0,0,0,0,5,1,0,0,8,6,7,1,5,9,3,0,0,1,5,0,0,0,0,0,8,0,0,3,4,0,1,0,0,0,0,0,1,0,6,0,0,0,0,4,0,0,3,0,0,1,9,0";
-    // string s= "080100507000047093300080160060203000800000006000408070038050004450870000906004080";
-    // string s= "000159007006200000207060040000608091004020700170304000040010306000002500300986000";
-    // string s ="800009500400007006050010470000900007740102035100003000029080060500600002004300009";
+    // Read puzzle from file
+    string puzzle_file = "EASY.txt";
+    vector<int> puzzle = read_puzzle_from_file(puzzle_file);
 
-    /// 4 Hard Boards
-    // string s= "0,0,8,0,0,2,0,6,0,0,0,0,1,0,0,5,0,3,0,0,1,0,5,0,4,7,0,0,2,4,5,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,1,9,4,0,0,5,3,0,8,0,6,0,0,4,0,7,0,0,9,0,0,0,0,6,0,3,0,0,8,0,0";
-    //string s= "074800090003010800000090004000900302002000600601008000800020000005070100010003540";
-    //string s= "800200009900060520000190300000070230000602000052010000009087000038040002400006001";
-    // string s= "300209040400080100058410000130000200000000000004000035000098570001070003070105008";
-
-    /// 4 Evil Boards:
-    //string s= "0,0,0,0,0,0,0,0,4,0,5,0,0,0,3,0,9,6,0,0,9,6,0,0,0,7,0,0,0,0,0,4,9,7,0,0,0,0,3,8,0,5,2,0,0,0,0,7,2,6,0,0,0,0,0,6,0,0,0,0,7,5,0,2,9,0,4,0,0,0,3,0,3,0,0,0,0,0,0,0,0";
-    //string s= "070300204800001009001200000700010008008000300200090005000008600100500002605004070";
-    // string s= "008001070900000000000705420300000560007020900049000008016807000000000004090100800";
-    // string s= "000927500000100009000000601060090300500010007004080020403000000100009000008462000";
-
-
+    // Populate grid and fixed cells from puzzle
     int pos = 0;
-    for (int i=0; i<9; i++)
-    {
-        for (int j=0; j<9; j++)
-        {
-            if(s[pos]!=',')
-            {
-                grid[i][j] = s[pos]-'0';
-                pos++;
-            }
-           else
-            {
-                pos++;
-                grid[i][j] = s[pos]-'0';
-                pos++;
-            }
-
-
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            grid[i][j] = puzzle[pos];
             if (grid[i][j]) fixed[i][j] = 1;
+            pos++;
         }
     }
 
     vector<vector<int>> inputGrid = grid;
-    cout<<"\nInput Grid : \n";
+    cout << "\nInput Grid : \n";
     printGrid(inputGrid);
 
-
+    // Start measuring performance
+    auto start_time = chrono::high_resolution_clock::now();
+    FILETIME creationTime, exitTime, kernelTime, userTime;
+    ULARGE_INTEGER startUserTime, endUserTime;
+    GetProcessTimes(GetCurrentProcess(), &creationTime, &exitTime, &kernelTime, &userTime);
+    startUserTime.LowPart = userTime.dwLowDateTime;
+    startUserTime.HighPart = userTime.dwHighDateTime;
 
     populateGrid(grid, fixed);
 
-    /* cout<<"Populated Grid : \n";
-     printGrid(grid);
-     */
-
-    vector<vector<int>> tempGrid;                   // used to convey possible changes to main grid
+    vector<vector<int>> tempGrid; // Used to convey possible changes to main grid
 
     vector<int> costs;
     tempGrid = grid;
-    for (int i=0; i<20; i++)
-    {
+    for (int i = 0; i < 20; i++) {
         swapUnfixed(tempGrid, fixed);
-        costs.push_back(getCost(tempGrid));         // small number of neighbourhood moves
-    }                                               // to calculate appropriate initial temperature
+        costs.push_back(getCost(tempGrid)); // Small number of neighbourhood moves to calculate appropriate initial temperature
+    }
 
-
-    // set initial parameters
+    // Set initial parameters
     int initialCost = getCost(grid);
     double initialTemp = stddev(costs);
     vector<vector<int>> initialGrid = grid;
@@ -219,45 +190,35 @@ int main()
     double currTemp = initialTemp;
 
     vector<vector<int>> currGrid = grid;
-    int reheatPeriod = 200;                         // sets reheat period
-    queue<int> checkReheat;                         // checks if cost has increased within reheat period
-    // for a need to reheat
+    int reheatPeriod = 200; // Sets reheat period
+    queue<int> checkReheat; // Checks if cost has increased within reheat period
     int iterations = 0;
     int maxIterations = 40000;
 
-    while(1)
-    {
+    while (1) {
+        if (iterations > maxIterations) break; // Found a solution (cost = 0)
 
-        if (iterations > maxIterations) break;       // found a solution (cost = 0)
-
-        if (!currCost)
-        {
-            cout<<"Perfect Solution!\n\n";
+        if (!currCost) {
+            cout << "Perfect Solution!\n\n";
             break;
         }
 
-        if (iterations<reheatPeriod)
+        if (iterations < reheatPeriod)
             checkReheat.push(currCost);
-
-        else
-        {
-            if (currCost > checkReheat.front())      // changed for the worse (probably) in past reheatPeriod
-            {
-                currCost = initialCost;              // reset
+        else {
+            if (currCost > checkReheat.front()) { // Changed for the worse (probably) in past reheatPeriod
+                currCost = initialCost; // Reset
                 currTemp = initialTemp;
                 currGrid = inputGrid;
-                populateGrid(currGrid, fixed);       // repopulate initial grid
+                populateGrid(currGrid, fixed); // Re-populate initial grid
 
-                cout<<"Reheated to get new Populated Grid: \n";
+                cout << "Reheated to get new Populated Grid: \n";
                 printGrid(currGrid);
 
                 checkReheat = queue<int>();
                 iterations = 0;
-
-            }
-            else
-            {
-                checkReheat.pop();                    // maintain most recent costs with queue
+            } else {
+                checkReheat.pop(); // Maintain most recent costs with queue
                 checkReheat.push(currCost);
             }
         }
@@ -268,8 +229,7 @@ int main()
         int tempCost = getCost(tempGrid);
         double delta = tempCost - currCost;
 
-        if ( (delta<0) ||  (exp(-delta/currTemp) > randomDouble()) )
-        {
+        if ((delta < 0) || (exp(-delta / currTemp) > randomDouble())) {
             currGrid = tempGrid;
             currCost = tempCost;
         }
@@ -278,14 +238,34 @@ int main()
         iterations++;
     }
 
-    cout<<"Final Grid :\n";
-    printGrid(currGrid);
+    auto end_time = chrono::high_resolution_clock::now();
+    //FILETIME exitTime, kernelTime, userTime;
+   // ULARGE_INTEGER endUserTime;
+    GetProcessTimes(GetCurrentProcess(), &creationTime, &exitTime, &kernelTime, &userTime);
+    endUserTime.LowPart = userTime.dwLowDateTime;
+    endUserTime.HighPart = userTime.dwHighDateTime;
 
+    // Calculate elapsed time, CPU time, and memory usage
+    chrono::duration<double> elapsed = end_time - start_time;
+    double elapsed_seconds = elapsed.count();
 
-    long tick = clock();                                        // Clock function to return elapsed time in seconds
-    cout << (long double)tick/CLOCKS_PER_SEC << endl <<endl;
+    ULONGLONG cpu_time = (endUserTime.QuadPart - startUserTime.QuadPart) / 10000000.0;
+    PROCESS_MEMORY_COUNTERS memCounter;
+    GetProcessMemoryInfo(GetCurrentProcess(), &memCounter, sizeof(memCounter));
+    size_t memory_usage = memCounter.WorkingSetSize / 1024; // Memory usage in KB
+
+    // Open the log file and write performance metrics
+    ofstream log_file("performance_log.csv");
+    log_file << "Elapsed Time (seconds),CPU Time (seconds),Memory Usage (KB)\n";
+    log_file //<< fixed << setprecision(3)
+             << elapsed_seconds << ","
+             << cpu_time << ","
+             << memory_usage << "\n";
+    log_file.close();
+
+    cout << "Elapsed Time: " << elapsed_seconds << " seconds\n";
+    cout << "CPU Time: " << cpu_time << " seconds\n";
+    cout << "Memory Usage: " << memory_usage << " KB\n";
 
     return 0;
-
-
 }
